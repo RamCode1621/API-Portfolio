@@ -8,20 +8,26 @@ const ModelMyInfo=require('../models/MyInfo')
 Functions.getProjects=(req,res)=>{
     ModelProject.find()
     .then(data=>res.json(data))
-    .catch(error=>res.json(error))
+    .catch(error=>res.json({
+        database:'Not find'
+    }))
 }
  
 Functions.getProjectDetails=(req,res)=>{
     const nameRes=req.params.name
     ModelProject.findOne({name:nameRes})
     .then(data=>res.json(data))
-    .catch(error=>res.json(error)) 
+    .catch(error=>res.json({
+        database:'Not find'
+    }))
 }
 
 Functions.getMyInfo=(req,res)=>{
     ModelMyInfo.find()
     .then(data=>res.json(data))
-    .catch(error=>res.json(error)) 
+    .catch(error=>res.json({
+        database:'Not find'
+    }))
 }
 
 // Functions.saveData=(req,res)=>{
