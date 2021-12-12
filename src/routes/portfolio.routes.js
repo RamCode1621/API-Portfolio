@@ -6,7 +6,7 @@ const {getProjects,getProjectDetails,getMyInfo,saveData,saveMyInfo}=require('../
 // const ModelMyInfo=require('../models/MyInfo')
 
 router.get('/',(req,res)=>{
-    res.redirect('/info')
+    res.json({sfddgeg:'ewrgerge'})
 }) 
 router.get('/projects',getProjects) 
 
