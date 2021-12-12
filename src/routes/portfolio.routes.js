@@ -11,7 +11,7 @@ router.get('/',(req,res)=>{
 router.get('/projects',(req,res)=>{
     ModelProject.find()
     .then(data=>res.json(data))
-    .catch(error=>res.json({
+    .catch(error=>res.json({ 
         database:'Not find'
     }))
 }) 
