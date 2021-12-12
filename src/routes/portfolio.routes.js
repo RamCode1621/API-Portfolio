@@ -1,5 +1,7 @@
-const {Router}=require('express')
-const router=Router()
+//Routes
+
+const express=require('express')
+const router=express.Router()
 const {getProjects,getProjectDetails,getMyInfo,saveData,saveMyInfo}=require('../controllers/routes.controllers')
 
 // const ModelProject=require('../models/Project')
