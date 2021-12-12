@@ -8,7 +8,7 @@ const ModelMyInfo=require('../models/MyInfo')
 router.get('/',(req,res)=>{
     res.redirect('/info')
 }) 
-router.get('/projects',Functions.getProjects=(req,res)=>{
+router.get('/projects',(req,res)=>{
     ModelProject.find()
     .then(data=>res.json(data))
     .catch(error=>res.json({
