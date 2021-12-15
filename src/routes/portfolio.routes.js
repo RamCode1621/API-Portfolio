@@ -7,6 +7,10 @@ const {getProjects,getProjectDetails,getMyInfo,saveData,saveMyInfo}=require('../
 // const ModelProject=require('../models/Project')
 // const ModelMyInfo=require('../models/MyInfo')
 
+router.get('/',(req,res)=>{
+    res.send('My API!!!!!')
+})
+
 router.get('/projects',getProjects) 
 router.get('/project/:name',getProjectDetails)
 router.get('/info',getMyInfo)
