@@ -1,6 +1,8 @@
 const Functions=[]  
 const ModelProject=require('../models/Project')
 const ModelMyInfo=require('../models/MyInfo')
+const myInfo=require('../../public/aboutMe')
+
 Functions.getProjects=(req,res)=>{
     ModelProject.find()
     .then(data=>res.json(data))
@@ -20,9 +22,7 @@ Functions.getProjectDetails=(req,res)=>{
 Functions.getMyInfo=(req,res)=>{
     ModelMyInfo.find()
     .then(data=>res.json(data))
-    .catch(error=>res.json({
-        database:'Not find'
-    }))
+    .catch(error=>console.error(error))
 }
 // Functions.saveData=(req,res)=>{
 //     projects.forEach(item=>{

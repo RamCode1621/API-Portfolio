@@ -1,6 +1,6 @@
 const mongoose=require('mongoose')
 
-const myInfoSchema=new mongoose.Schema({
+const InfoSchema=new mongoose.Schema({
     title:{type:String},
     description: {type:String},
     description2:{type:String},
@@ -10,4 +10,4 @@ const myInfoSchema=new mongoose.Schema({
 
 
 
-module.exports=mongoose.model('myInfo',myInfoSchema)
+module.exports=mongoose.model('MyInfo',InfoSchema)
