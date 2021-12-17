@@ -6,6 +6,7 @@ const myInfo=require('../../public/aboutMe')
 Functions.getProjects= async(req,res)=>{
     const projectsRequest= await ModelProject.find()
     console.log(projectsRequest)
+    res.send('dffsgg')
 }
 
 Functions.getProjectDetails=(req,res)=>{
