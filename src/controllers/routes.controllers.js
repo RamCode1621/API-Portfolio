@@ -6,10 +6,7 @@ const myInfo=require('../../public/aboutMe')
 Functions.getProjects=(req,res)=>{
     ModelProject.find()
     .then(data=>res.json(data))
-    .catch(error=>res.json({
-        database:'Not find' 
-    }))
-    res.send('dfthbrthy')
+    .catch(error=>res.send('Error database not fund!'))
 }
 
 Functions.getProjectDetails=(req,res)=>{
