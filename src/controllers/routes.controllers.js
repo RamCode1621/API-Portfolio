@@ -4,11 +4,11 @@ const ModelMyInfo=require('../models/MyInfo')
 const myInfo=require('../../public/aboutMe')
 
 Functions.getProjects=(req,res)=>{
-    // ModelProject.find()
-    // .then(data=>res.json(data))
-    // .catch(error=>res.json({
-    //     database:'Not find'
-    // }))
+    ModelProject.find()
+    .then(data=>res.json(data))
+    .catch(error=>res.json({
+        database:'Not find' 
+    }))
     res.send('dfthbrthy')
 }
 
@@ -16,7 +16,7 @@ Functions.getProjectDetails=(req,res)=>{
     const nameRes=req.params.name
     ModelProject.findOne({name:nameRes})
     .then(data=>res.json(data))
-    .catch(error=>res.json({
+    .catch(error=>res.json({ 
         database:'Not find'
     }))
 }
