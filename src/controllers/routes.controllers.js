@@ -3,10 +3,9 @@ const ModelProject=require('../models/Project')
 const ModelMyInfo=require('../models/MyInfo')
 const myInfo=require('../../public/aboutMe')
 
-Functions.getProjects=(req,res)=>{
-    ModelProject.find()
-    .then(data=>res.json(data))
-    .catch(error=>res.send('Error database not fund!'))
+Functions.getProjects= async(req,res)=>{
+    const projectsRequest= await ModelProject.find()
+    console.log(projectsRequest)
 }
 
 Functions.getProjectDetails=(req,res)=>{
