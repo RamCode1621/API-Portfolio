@@ -15,7 +15,7 @@ router.get('/projects',getProjects)
 router.get('/project/:name',getProjectDetails) 
 router.get('/info',getMyInfo)
 
-// router.get('/save-data',saveData)
-// router.get('/save-myInfo',saveMyInfo)
+router.get('/save-data',saveData)
+router.get('/save-myInfo',saveMyInfo)
 
 module.exports=router   

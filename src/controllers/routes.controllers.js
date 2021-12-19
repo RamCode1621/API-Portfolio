@@ -21,27 +21,28 @@ Functions.getMyInfo=(req,res)=>{
     .then(data=>res.json(data))
     .catch(error=>console.error(error))
 }
-// Functions.saveData=(req,res)=>{
-//     projects.forEach(item=>{
-//         let doc=new ModelProject(item)
-//         doc.save()
-//             .then(doc => {
-//                 console.log('project saved!!')
-//             })
-//             .catch(err => {
-//                 console.error(err)
-//             })
-//     })
-//     res.status(200)
-// }
-// Functions.saveMyInfo=(req,res)=>{
-//     let doc=new ModelMyInfo(myInfo)
-//     doc.save()
-//     .then(doc => {
-//         console.log('My info save!')
-//     })
-//     .catch(err => {
-//         console.error(err)
-//     })
-// }
+
+Functions.saveData=(req,res)=>{
+    projects.forEach(item=>{
+        let doc=new ModelProject(item)
+        doc.save()
+            .then(doc => {
+                console.log('projects saved!!')
+            })
+            .catch(err => {
+                console.error(err)
+            })
+    })
+    res.status(200)
+}
+Functions.saveMyInfo=(req,res)=>{
+    let doc=new ModelMyInfo(myInfo)
+    doc.save()
+    .then(doc => {
+        console.log('My info save!')
+    })
+    .catch(err => {
+        console.error(err)
+    })
+}
 module.exports=Functions
