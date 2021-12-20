@@ -1,6 +1,6 @@
 const mongoose=require('mongoose')
 
-const stringConection=process.env.URL_DATABASE
+const stringConection='mongodb+srv://richard:F80jk83EB7EgoMGN@cluster0.a88to.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
 const settings={ 
     useNewUrlParser: true, 
