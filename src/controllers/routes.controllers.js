@@ -1,25 +1,27 @@
+const projects=require('../../public/projects')
+const aboutMe=require('../../public/aboutMe')
 const Functions=[]  
+
 const ModelProject=require('../models/Project')
 const ModelMyInfo=require('../models/MyInfo')
-const myInfo=require('../../public/aboutMe')
 
-Functions.getProjects= async(req,res)=>{
-    const projectsRequest= await ModelProject.find()
-    res.json(projectsRequest)
+Functions.getProjects=(req,res)=>{
+    ModelProject.find()
+    .then(data=>res.json(data))
+    .catch(error=>res.json(error))
 }
-
+ 
 Functions.getProjectDetails=(req,res)=>{
     const nameRes=req.params.name
     ModelProject.findOne({name:nameRes})
     .then(data=>res.json(data))
-    .catch(error=>res.json({ 
-        database:'Not find'
-    }))
+    .catch(error=>res.json(error)) 
 }
+
 Functions.getMyInfo=(req,res)=>{
     ModelMyInfo.find()
     .then(data=>res.json(data))
-    .catch(error=>console.error(error))
+    .catch(error=>res.json(error)) 
 }
 
 Functions.saveData=(req,res)=>{
@@ -27,7 +29,7 @@ Functions.saveData=(req,res)=>{
         let doc=new ModelProject(item)
         doc.save()
             .then(doc => {
-                console.log('projects saved!!')
+                console.log('project saved!!')
             })
             .catch(err => {
                 console.error(err)
@@ -35,8 +37,9 @@ Functions.saveData=(req,res)=>{
     })
     res.status(200)
 }
+
 Functions.saveMyInfo=(req,res)=>{
-    let doc=new ModelMyInfo(myInfo)
+    let doc=new ModelMyInfo(aboutMe)
     doc.save()
     .then(doc => {
         console.log('My info save!')
@@ -45,4 +48,6 @@ Functions.saveMyInfo=(req,res)=>{
         console.error(err)
     })
 }
+
+
 module.exports=Functions
