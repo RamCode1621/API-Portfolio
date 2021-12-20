@@ -1,6 +1,6 @@
 const projects=require('../../public/projects')
 const aboutMe=require('../../public/aboutMe')
-const Functions=[]  
+const Functions={}
 
 const ModelProject=require('../models/Project')
 const ModelMyInfo=require('../models/MyInfo')
