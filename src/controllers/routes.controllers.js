@@ -5,29 +5,38 @@ const Functions={}
 const ModelProject=require('../models/Project')
 const ModelMyInfo=require('../models/MyInfo')
 
-Functions.getProjects=async(req,res)=>{
+Functions.getProjects=(req,res)=>{
     try{
-        const requestData=await ModelProject.find()
-        await res.json(requestData)
-    }catch(err){
-        console.log(`Peticion no concretada:\n${err}`)
+        // ModelProject.find()
+        // .then(data=>res.json(data))
+        // .catch(error=>res.json(error))
+        res.json({
+            author:'Richard'
+        })
+    }catch(error){
+        res.write(`Peticion no concretada:\n${error}`)
     }
-    
-    // .then(data=>res.json(data))
-    // .catch(error=>res.json(error))
 }
  
 Functions.getProjectDetails=(req,res)=>{
     const nameRes=req.params.name
-    ModelProject.findOne({name:nameRes})
-    .then(data=>res.json(data))
-    .catch(error=>res.json(error)) 
+    try {
+        ModelProject.findOne({name:nameRes})
+        .then(data=>res.json(data))
+        .catch(error=>res.json(error)) 
+    } catch (error) {
+        res.write(`Peticion no concretada:\n${error}`)
+    }
 }
 
 Functions.getMyInfo=(req,res)=>{
-    ModelMyInfo.find()
-    .then(data=>res.json(data))
-    .catch(error=>res.json(error)) 
+    try {
+        ModelMyInfo.find()
+        .then(data=>res.json(data))
+        .catch(error=>res.json(error)) 
+    } catch (error) {
+        res.write(`Peticion no concretada:\n${error}`)
+    }
 }
 
 Functions.saveData=(req,res)=>{
