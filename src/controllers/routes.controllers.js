@@ -2,17 +2,17 @@ const projects=require('../../public/projects')
 const aboutMe=require('../../public/aboutMe')
 const Functions={}
 
-const ModelProject=require('../models/Project')
-const ModelMyInfo=require('../models/MyInfo')
+const Project=require('../models/Project')
+const MyInfo=require('../models/MyInfo')
 
 Functions.getProjects=(req,res)=>{
     try{
-        // ModelProject.find()
-        // .then(data=>res.json(data))
-        // .catch(error=>res.json(error))
-        res.json({
-            author:'Richard'
-        })
+        Project.find()
+        .then(data=>res.json(data))
+        .catch(error=>res.json(error))
+        // res.json({
+        //     author:'Richard'
+        // })
     }catch(error){
         res.write(`Peticion no concretada:\n${error}`)
     }
@@ -21,7 +21,7 @@ Functions.getProjects=(req,res)=>{
 Functions.getProjectDetails=(req,res)=>{
     const nameRes=req.params.name
     try {
-        ModelProject.findOne({name:nameRes})
+        Project.findOne({name:nameRes})
         .then(data=>res.json(data))
         .catch(error=>res.json(error)) 
     } catch (error) {
@@ -31,7 +31,7 @@ Functions.getProjectDetails=(req,res)=>{
 
 Functions.getMyInfo=(req,res)=>{
     try {
-        ModelMyInfo.find()
+        MyInfo.find()
         .then(data=>res.json(data))
         .catch(error=>res.json(error)) 
     } catch (error) {
@@ -41,7 +41,7 @@ Functions.getMyInfo=(req,res)=>{
 
 Functions.saveData=(req,res)=>{
     projects.forEach(item=>{
-        let doc=new ModelProject(item)
+        let doc=new Project(item)
         doc.save()
             .then(doc => {
                 console.log('project saved!!')
@@ -54,7 +54,7 @@ Functions.saveData=(req,res)=>{
 }
 
 Functions.saveMyInfo=(req,res)=>{
-    let doc=new ModelMyInfo(aboutMe)
+    let doc=new MyInfo(aboutMe)
     doc.save()
     .then(doc => {
         console.log('My info save!')

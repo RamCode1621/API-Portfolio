@@ -10,4 +10,4 @@ const AboutMe=new mongoose.Schema({
 
 
 
-module.exports=mongoose.model('AboutMe',AboutMe)
+module.exports=mongoose.model('Mydatas',AboutMe)
