@@ -5,10 +5,16 @@ const Functions={}
 const ModelProject=require('../models/Project')
 const ModelMyInfo=require('../models/MyInfo')
 
-Functions.getProjects=(req,res)=>{
-    ModelProject.find()
-    .then(data=>res.json(data))
-    .catch(error=>res.json(error))
+Functions.getProjects=async(req,res)=>{
+    try{
+        const requestData=await ModelProject.find()
+        await res.json(requestData)
+    }catch(err){
+        console.log(`Peticion no concretada:\n${err}`)
+    }
+    
+    // .then(data=>res.json(data))
+    // .catch(error=>res.json(error))
 }
  
 Functions.getProjectDetails=(req,res)=>{
