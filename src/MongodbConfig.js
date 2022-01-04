@@ -8,7 +8,7 @@ const settings={
 }
  
 mongoose.connect(stringConection,settings)
-.then(res=>console.log("Database coneted!!!"))
+.then(res=>console.log("Database mongodb coneted!!!"))
 .catch(error=>console.error(error))
 
 module.exports=mongoose

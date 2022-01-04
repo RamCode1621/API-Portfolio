@@ -1,6 +1,6 @@
 require('dotenv').config('./')
 const app=require('./src/server')
-require('./src/database')
+require('./src/MongodbConfig')
 
 const port=process.env.PORT
  

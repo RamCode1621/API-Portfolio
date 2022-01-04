@@ -12,3 +12,11 @@ http://localhost:4000/save-data
 
 ###
 http://localhost:4000/save-myInfo
+
+###
+http://localhost:4000/globalVules/numViews
+###
+http://localhost:4000/employees
+
+###
+http://localhost:4000/employe/4

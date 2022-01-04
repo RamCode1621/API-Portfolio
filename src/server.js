@@ -3,6 +3,7 @@ const morgan=require('morgan')
 
 const app=express()
 
+app.use(express.json())
 app.use(morgan('dev'))
 
 app.use(function(req, res, next) {
@@ -13,6 +14,7 @@ app.use(function(req, res, next) {
 })
  
 app.use(require('./routes/portfolio.routes'))
+// app.use(require('./routes/users.routes'))
 
 app.use(express.static(__dirname+'/../public'))
 
