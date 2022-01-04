@@ -51,7 +51,7 @@ Functions.getNumViews=(req,res)=>{
         })
         .then(objectViews=>{
            Counter.updateOne({_id:idViews},objectViews)
-           .then(console.log(objectViews))
+           .then(res.json(objectViews))
            
         })
         .catch(error=>res.json(error)) 
